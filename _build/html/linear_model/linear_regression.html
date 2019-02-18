@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>linear regression &mdash; Machine-Learning-Model-Analysis 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="linear regression why" href="linear_regression_why.html" />
+    <link rel="prev" title="linear Model" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Machine-Learning-Model-Analysis
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mathematical_notation.html">mathematical notation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">linear Model</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">linear regression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">图例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#predicted-function">Predicted function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loss-function">Loss function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-function">Object function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimizing">Optimizing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#normal-equations">Normal equations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gradient-based">Gradient-based</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression_why.html">linear regression why</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression_expand.html">linear regression expand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logistic_regression.html">logistic regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logistic_regression_why.html">logistic regression why</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logistic_regression_expand.html">logistic regression expand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax_regression.html">softmax regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax_regression_why.html">softmax regression why</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Todo.html">Todo</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Machine-Learning-Model-Analysis</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">linear Model</a> &raquo;</li>
+        
+      <li>linear regression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/linear_model/linear_regression.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linear-regression">
+<h1>linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>图例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="predicted-function">
+<h2>Predicted function<a class="headerlink" href="#predicted-function" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(\mathbf{x}) =
+\begin{bmatrix}
+\theta_0 \\
+\theta_1 \\
+.. \\
+\theta_n
+\end{bmatrix}^T
+\begin{bmatrix}
+\mathbf{x}_0 \\
+\mathbf{x}_1 \\
+.. \\
+\mathbf{x}_n
+\end{bmatrix}
+=\mathbf{\theta}^T \mathbf{x}\end{split}\]</div>
+</div>
+<div class="section" id="loss-function">
+<h2>Loss function<a class="headerlink" href="#loss-function" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[L(y,\bar{y}) = (y - \bar{y})^2\]</div>
+</div>
+<div class="section" id="object-function">
+<h2>Object function<a class="headerlink" href="#object-function" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[O(\mathbf{y},\mathbf{X}) = \frac{1}{2} \sum_{i=1}^{m}L(\mathbf{y}_{i},f(\mathbf{X}_i))=(\mathbf{y} - \mathbf{X}\mathbf{\theta})^T(\mathbf{y} - \mathbf{X}\mathbf{\theta})\]</div>
+</div>
+<div class="section" id="optimizing">
+<h2>Optimizing<a class="headerlink" href="#optimizing" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[\mathbf{\theta} = \mathop{\mathbf{\arg\min}}_{\mathbf{\theta}} \ \ \frac{1}{2} O(\mathbf{y},\mathbf{X})\]</div>
+<div class="section" id="normal-equations">
+<h3>Normal equations<a class="headerlink" href="#normal-equations" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\theta} {O(\mathbf{y},\mathbf{X};\mathbf{\theta})} &amp; =  \nabla_{\theta}  \ \ \frac{1}{2}(\mathbf{y} - \mathbf{X}\mathbf{\theta})^T (\mathbf{y} - \mathbf{X}\mathbf{\theta}) \\
+                                                           &amp; = \frac{1}{2} \nabla_{\theta} \ \ (\mathbf{\theta}^T \mathbf{X}^T \mathbf{X} \mathbf{\theta} - \mathbf{\theta}^T \mathbf{X}\mathbf{y} - \mathbf{y}^T\mathbf{X}\mathbf{\theta} + \mathbf{y}^T\mathbf{y}) \\
+                                                           &amp; = \frac{1}{2} \nabla_{\theta} \ \ \text{Tr}(\mathbf{\theta}^T \mathbf{X}^T \mathbf{X} \mathbf{\theta} - \mathbf{\theta}^T \mathbf{X}\mathbf{y} - \mathbf{y}^T\mathbf{X}\mathbf{\theta} + \mathbf{y}^T\mathbf{y}) \\
+                                                           &amp; = \frac{1}{2} \nabla_{\theta} \ \ (\text{Tr}(\mathbf{\theta}^T \mathbf{X}^T \mathbf{X}\mathbf{\theta}) - 2 \text{Tr}(\mathbf{y}^T\mathbf{X}\mathbf{\theta})) \\
+                                                           &amp; = \frac{1}{2} (\mathbf{X}^T \mathbf{X} \mathbf{\theta} + \mathbf{X}^T \mathbf{X}\mathbf{\theta} - 2 \mathbf{X}^T \mathbf{y}) \\
+                                                           &amp; = \mathbf{X}^T \mathbf{X} \mathbf{\theta} - \mathbf{X}^T \mathbf{y}\end{split}\]</div>
+<p>令 <span class="math notranslate nohighlight">\(\nabla_{\theta}{O(\mathbf{y},\mathbf{X};\mathbf{\theta})} = 0\)</span>,得</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{X}^T \mathbf{X} \mathbf{\theta} &amp; = \mathbf{X}^T \mathbf{y} \\
+                                        \mathbf{\theta} &amp; = \begin{cases}
+                                                                (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y} &amp; \text{Tr}{\mathbf{X}} = \text{Tr}{\mathbf{X}^T}\\
+                                                                (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y} &amp; \text{pass}
+                                                            \end{cases}\end{split}\]</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">若特征矩阵不是方阵,的情况。。。。待查询相关资料</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">求解过程需要相关矩阵迹的知识</p>
+</div>
+</div>
+<div class="section" id="gradient-based">
+<h3>Gradient-based<a class="headerlink" href="#gradient-based" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\theta} {O(\mathbf{y},\mathbf{X};\mathbf{\theta})} &amp; = \nabla_{\theta} \ \ \frac{1}{2} \sum_{i=1}^{m} L(\mathbf{y}_i,f(\mathbf{X}_i)) \\
+                                                           &amp; = \nabla_{\theta} \ \ \frac{1}{2} \sum_{i=1}^{m} (\mathbf{y}_i - \mathbf{\theta}^T \mathbf{X}_i)^2 \\
+                                                           &amp; = \nabla_{\theta} \ \ \frac{1}{2} (\mathbf{y}_i - \mathbf{\theta}^T \mathbf{X}_i )^2 \\
+                                                           &amp; = \frac{1}{2} * 2 (\mathbf{y}_i - \mathbf{\theta}^T \mathbf{X}_i) \frac{\partial{(-\mathbf{\theta}^T \mathbf{X}})}{\mathrm{d}{\theta}} \\
+                                                           &amp; = - (\mathbf{y}_i - \mathbf{\theta}^T \mathbf{X}_i) \mathbf{X}_{i}\end{split}\]</div>
+<p>根据上式子,可以得出参数更新规则:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\theta} \leftarrow \mathbf{\theta} - \alpha (- (\mathbf{y}_i - f(\mathbf{X}_i)) \mathbf{X}_{i} )\]</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linear_regression_why.html" class="btn btn-neutral float-right" title="linear regression why" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="linear Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 476900563@qq.com
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
