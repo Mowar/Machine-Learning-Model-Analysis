@@ -13,3 +13,6 @@ mathematical notation
 * :math:`\mathbf{X}^{j}` 表示矩阵的第j列
 * :math:`\mathbf{X}_{i}^{j}` 表示矩阵的第i行j列的值
 * :math:`\epsilon` 表示预测值与真实值之间的误差项
+* :math:`;` 分号后的数字表示超参数
+* :math:`w、h、l` 代表长宽高
+

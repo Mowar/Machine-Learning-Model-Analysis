@@ -12,6 +12,8 @@ Welcome to Machine-Learning-Model-Analysis's documentation!
 
    mathematical_notation
    linear_model/index
+   Neuro_layers/index
+   NN_model/index
    Todo
 
 
