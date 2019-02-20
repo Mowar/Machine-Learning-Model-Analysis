@@ -4,7 +4,7 @@ Todo
 
 
 * 重新组织rst 文档的相关知识点                  Ok
-* 安装chaincode-java 
+* 安装chaincode-java
 * 生成fabric-chaincode-java jar包
 * 初始化fabirc-chaincode-java example 仓库    ok
 * 初始化Machine-Learning-Model-Analysis 仓库 及编写相关内容 ok
@@ -13,13 +13,29 @@ Todo
 * 线性回归的求解,需要查询输入矩阵不是方阵的情况.
 * 关于矩阵迹的相关附录
 * linear regression expand (lasso、ridge、加权线性回归)
+* logistic回归的相关扩展待查阅
+* logistic回归IRLS方法求解
 * 最大熵模型的描述
+* 描述当前层与下一层的关系
+* 参数数量与神经元数量之间的权衡
+* 统一的框架描述(数学公式)描述所有的层
+* 层高效的实现
+
 
 MxNet-Hands-On-Deep-Learning
 ===============================
 
-第一课：从上手到多类分类
---------------------------
+第一课：从上手到多类分类(视频未看)
+-------------------------------------
 
-* 线性回归
-* softmax回归
+* 线性回归            理论初步完成
+* logistic回归        理论初步完成
+* softmax回归         理论初步完成
+
+第二课:过拟合、多层感知机、GPU和卷积神经网络
+
+* MLP 实现和测试比训练准确率高?
+* 过拟合的原因?
+* LeNet模型
+* 卷积层、全连接层、池化层相关分析  ----理论初步完成
+
