@@ -4,9 +4,6 @@ Todo
 
 
 * 重新组织rst 文档的相关知识点                  Ok
-* 安装chaincode-java
-* 生成fabric-chaincode-java jar包
-* 初始化fabirc-chaincode-java example 仓库    ok
 * 初始化Machine-Learning-Model-Analysis 仓库 及编写相关内容 ok
 * 机器学习电子书需处理                         ok
 * gradle 笔记                                 ok
@@ -21,7 +18,6 @@ Todo
 * 统一的框架描述(数学公式)描述所有的层
 * 层高效的实现
 
-
 MxNet-Hands-On-Deep-Learning
 ===============================
 
@@ -32,10 +28,13 @@ MxNet-Hands-On-Deep-Learning
 * logistic回归        理论初步完成
 * softmax回归         理论初步完成
 
-第二课:过拟合、多层感知机、GPU和卷积神经网络
+第二课:过拟合、多层感知机、GPU和卷积神经网络(已看)
+--------------------------------------------------------
 
-* MLP 实现和测试比训练准确率高?
+* MLP 实现     实现,未测试
+* 为什么有时候测试比训练准确率高?
 * 过拟合的原因?
-* LeNet模型
+* LeNet模型 实现    部分实现,未测试
 * 卷积层、全连接层、池化层相关分析  ----理论初步完成
+* 卷积层、全连接层、池化层 适用场景
 
