@@ -6,3 +6,4 @@ deep learning recommend system
 
    FM
 
+local dependencies and hierarchical structures
