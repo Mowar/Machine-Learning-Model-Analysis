@@ -24,3 +24,5 @@ iPinYou dataset
 =================
 
 - ipinyou global rtb bidding algorithm competition dataset(论文名)
+
+- ink: http://data.computational-advertising.org
